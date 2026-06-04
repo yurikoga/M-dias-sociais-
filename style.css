@@ -1,0 +1,83 @@
+body {
+  background-color: #e3f2fd;
+  height: 100vh;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.fab-wrapper {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+/* Estilo dos Botões */
+.fab-trigger, .fab-menu li {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-size: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.fab-trigger.roxo { background: #8e44ad; }
+.fab-trigger.vermelho { background: #e74c3c; transform: rotate(45deg); }
+
+/* Menu Suspenso */
+.fab-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 15px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  transform: scale(0);
+  transform-origin: bottom;
+  opacity: 0;
+}
+
+.fab-menu.active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Tooltip (Legenda ao passar o mouse) */
+.fab-menu li { position: relative; border-radius: 8px; }
+.fab-menu li::after {
+  content: attr(data-label);
+  position: absolute;
+  left: 65px;
+  background: white;
+  color: #3498db;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.2s;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.fab-menu li:hover::after { opacity: 1; left: 75px; }
+
+/* Cores das Redes */
+.pin { background: #bd081c; }
+.in  { background: #0077b5; }
+.yt  { background: #ff0000; }
+.db  { background: #ea4c89; }
+.gh  { background: #333; }
+.fb  { background: #3b5998; }
+.tw  { background: #1da1f2; }
